@@ -1,6 +1,7 @@
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import ArrowIcon from '../Components/ArrowIcon';
 import ContactBand from '../Components/ContactBand';
+import Seo from '../Components/Seo';
 import SiteLayout from '../Components/SiteLayout';
 
 const influences = [
@@ -45,17 +46,12 @@ const process = [
     },
 ];
 
-export default function About() {
+export default function About({ seo }) {
     const { siteContent } = usePage().props;
 
     return (
         <SiteLayout>
-            <Head title="The artist — AK PALETTES">
-                <meta
-                    name="description"
-                    content="Meet Aloknanda Kundu, the artist behind AK PALETTES, and the cultures, traditions and memories that shape her work."
-                />
-            </Head>
+            <Seo seo={seo} />
 
             <section className="page-hero">
                 <p className="eyebrow"><span /> The artist</p>

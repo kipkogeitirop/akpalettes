@@ -1,10 +1,10 @@
-import { Head } from '@inertiajs/react';
 import { useState } from 'react';
 import ArtworkCard from '../../Components/ArtworkCard';
 import ContactBand from '../../Components/ContactBand';
+import Seo from '../../Components/Seo';
 import SiteLayout from '../../Components/SiteLayout';
 
-export default function GalleryIndex({ artworks, categories }) {
+export default function GalleryIndex({ artworks, categories, seo }) {
     const [activeFilter, setActiveFilter] = useState('All work');
     const [availableOnly, setAvailableOnly] = useState(false);
     const filters = ['All work', ...categories];
@@ -16,12 +16,7 @@ export default function GalleryIndex({ artworks, categories }) {
 
     return (
         <SiteLayout>
-            <Head title="Gallery — AK PALETTES">
-                <meta
-                    name="description"
-                    content="The full collection of paintings by Aloknanda Kundu, inspired by Indian traditions, nature, African cultures and contemporary life."
-                />
-            </Head>
+            <Seo seo={seo} />
 
             <section className="work-section work-section--page">
                 <div className="work-heading">

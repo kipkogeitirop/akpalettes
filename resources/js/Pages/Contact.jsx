@@ -1,5 +1,5 @@
-import { Head } from '@inertiajs/react';
 import ArrowIcon from '../Components/ArrowIcon';
+import Seo from '../Components/Seo';
 import SiteLayout from '../Components/SiteLayout';
 import useContact from '../Components/useContact';
 import WhatsAppIcon from '../Components/WhatsAppIcon';
@@ -27,17 +27,12 @@ const topics = [
     },
 ];
 
-export default function Contact() {
+export default function Contact({ seo }) {
     const { email, hasWhatsApp, whatsappNumber, whatsappUrl } = useContact();
 
     return (
         <SiteLayout>
-            <Head title="Get in touch — AK PALETTES">
-                <meta
-                    name="description"
-                    content="Get in touch with Aloknanda Kundu on WhatsApp or by email about original paintings, commissions and collaborations."
-                />
-            </Head>
+            <Seo seo={seo} />
 
             <section className="page-hero">
                 <p className="eyebrow"><span /> Get in touch</p>

@@ -1,8 +1,9 @@
-import { Head, Link, usePage } from '@inertiajs/react';
+import { Link, usePage } from '@inertiajs/react';
 import ArrowIcon from '../Components/ArrowIcon';
 import ArtworkCard from '../Components/ArtworkCard';
 import ContactBand from '../Components/ContactBand';
 import HeroSlideshow from '../Components/HeroSlideshow';
+import Seo from '../Components/Seo';
 import SiteLayout from '../Components/SiteLayout';
 import useContact from '../Components/useContact';
 import WhatsAppIcon from '../Components/WhatsAppIcon';
@@ -38,7 +39,7 @@ function parseExhibitions(text) {
         });
 }
 
-export default function Welcome({ hero, featured }) {
+export default function Welcome({ hero, featured, seo }) {
     const { siteContent } = usePage().props;
     const { hasWhatsApp, whatsappUrl } = useContact();
     const instagramHandle = siteContent.instagram_handle?.replace(/^@/, '');
@@ -51,12 +52,7 @@ export default function Welcome({ hero, featured }) {
 
     return (
         <SiteLayout>
-            <Head title="AK PALETTES — Where colours become stories">
-                <meta
-                    name="description"
-                    content="Explore the art of Aloknanda Kundu: contemporary paintings inspired by Indian traditions, African cultures, nature and the stories that connect us."
-                />
-            </Head>
+            <Seo seo={seo} />
 
             <section className="hero">
                 <div className="hero-copy">

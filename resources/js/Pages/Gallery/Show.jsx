@@ -1,12 +1,13 @@
-import { Head, Link } from '@inertiajs/react';
+import { Link } from '@inertiajs/react';
 import ArrowIcon from '../../Components/ArrowIcon';
 import ArtworkCard from '../../Components/ArtworkCard';
 import AvailabilityBadge from '../../Components/AvailabilityBadge';
+import Seo from '../../Components/Seo';
 import SiteLayout from '../../Components/SiteLayout';
 import useContact from '../../Components/useContact';
 import WhatsAppIcon from '../../Components/WhatsAppIcon';
 
-export default function GalleryShow({ artwork, position, total, previous, next, related }) {
+export default function GalleryShow({ artwork, position, total, previous, next, related, seo }) {
     const { email, hasWhatsApp, whatsappUrl } = useContact();
     const isSold = artwork.availability === 'sold';
     const enquiry = isSold
@@ -19,9 +20,7 @@ export default function GalleryShow({ artwork, position, total, previous, next, 
 
     return (
         <SiteLayout>
-            <Head title={`${artwork.title} — AK PALETTES`}>
-                <meta name="description" content={artwork.description} />
-            </Head>
+            <Seo seo={seo} />
 
             <section className="artwork-detail">
                 <Link className="back-link" href="/gallery">
